@@ -28,7 +28,6 @@ vector<int> filter_v2_2(const vector<int> &vec, int val, less<int> l_t){
     return new_vec;
 }
 
-
 vector<int> filter_v4_2(const vector<int> &vec, int val, less<int> l_t){ // sub_vec
     vector<int> local_vec(vec); // 副本
     sort(local_vec.begin(), local_vec.end());

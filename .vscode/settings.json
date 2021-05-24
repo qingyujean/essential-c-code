@@ -4,6 +4,14 @@
         "iosfwd": "cpp",
         "ostream": "cpp",
         "vector": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp",
+        "future": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "thread": "cpp",
+        "valarray": "cpp"
     }
 }

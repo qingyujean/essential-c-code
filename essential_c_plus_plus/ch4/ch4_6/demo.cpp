@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 // 既支持指针，又支持指向容器的iterator ch3_2
 template <typename IteratorType, typename elemType>
 IteratorType find(IteratorType first, IteratorType last, const elemType &value){
@@ -92,8 +91,6 @@ void Triangular::gen_elems_to_value(int value){
              << _max_elems << endl;
 }
 
-// 参考：
-// https://blog.csdn.net/zht_304/article/details/5381812
 void Triangular::display(int length, int beg_pos, ostream &os){ // ostream &os=cout 默认参数在声明里写了就行，在定义时不要写，写了会报错
     if(length<=0 || beg_pos<=0){
         cerr << "invalid parameters -- unable to fulfill request: "
@@ -110,24 +107,14 @@ void Triangular::display(int length, int beg_pos, ostream &os){ // ostream &os=c
 }
 
 
-
 int main(){
-    char ch;
-    bool more = true;
-
-    while(more){
-        cout << "Enter value: ";
-        int ival;
-        cin >> ival;
-
-        bool is_elem = Triangular::is_elem(ival);
-        cout << ival
-             << ( is_elem? " is " : " is not ")
-             << "an element in the Triangular series.\n"
-             << "Another value?(y/n)";
-
-        cin >> ch;
-        if(ch == 'n' || ch == 'N')
-            more = false;
+    Triangular trian(4, 8);
+    trian.display(4, 8);
+    cout << endl;
+    
+    Triangular::iterator it = trian.begin(), end_it = trian.end();
+    while(it != end_it){
+        cout << *it << ' ';
+        ++it;
     }
 }

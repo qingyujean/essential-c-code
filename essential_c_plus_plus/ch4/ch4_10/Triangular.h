@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -10,19 +11,14 @@ public:
 
     // 以下是const member func
     int length() const {return _length;}
+    void length(int len) {_length=len;}
     int beg_pos() const {return _begin_pos;}
-    int elem(int pos) const;
-    bool next(int &val) const;
+    void beg_pos(int bp) {_begin_pos=bp;}
     void next_reset() const {_next = _begin_pos-1;}
 
-    // 以下是non-const member func
-    // bool next(int &val);
-    // void next_reset() {_next = _begin_pos-1;}
-
-
-    //static bool is_elem(int val);
+    static bool is_elem(int val);
     static void gen_elements(int length);
-    //static void gen_elems_to_value(int value);
+    static void gen_elems_to_value(int value);
     static void display(int length, int beg_pos, ostream &os=cout);
 
 private:

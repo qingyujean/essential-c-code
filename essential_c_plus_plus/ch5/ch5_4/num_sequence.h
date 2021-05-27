@@ -14,13 +14,15 @@ public:
 private:
 protected:
     virtual void gen_elems(int pos) const = 0; // 产生直到pos位置的所有元素；=0表示纯虚函数
-    virtual bool check_integrity(int pos) const; // 检查pos位置是否为有效位置；check_integrity与派生类型无关
+    // virtual bool check_integrity(int pos) const; // 检查pos位置是否为有效位置；check_integrity与派生类型无关
+    virtual bool check_integrity(int pos, int size) const; // 检查pos位置是否为有效位置；check_integrity与派生类型无关
 
     const static int _max_elems = 1024;
 };
 
-inline num_sequence::num_sequence() {} // 空白定义
+inline num_sequence::~num_sequence() {} // 空白定义
 
+/*
 bool num_sequence::check_integrity(int pos) const{
     if(pos<=0 || pos>_max_elems){
         cerr << "!! invalid position: " << pos
@@ -29,7 +31,15 @@ bool num_sequence::check_integrity(int pos) const{
     }
     return true;
 }
-
-ostream & operator<<(ostream &os, const num_sequence &ns){ // 重载output运算符
-    return ns.print(os);
+*/
+bool num_sequence::check_integrity(int pos, int size) const{
+    if(pos<=0 || pos>_max_elems){
+        cerr << "!! invalid position: " << pos
+             << " Cannot honor request\n";
+        return false;
+    }
+    if(pos>size)
+        gen_elems(pos); // 通过虚拟机制调用对应的gen_elems()
+    return true;
 }
+

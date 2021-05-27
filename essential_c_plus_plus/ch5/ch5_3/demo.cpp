@@ -18,6 +18,16 @@ num_sequence::PtrType num_sequence::func_tbl[num_seq] = {
 }; // 存放6个member func的地址
 
 
+bool num_sequence::check_integrity(int pos) const{ // add by Jane
+    if(pos<=0 || pos>(*_elem).size()){
+        cerr << "!! invalid position: " << pos
+             << " Cannot honor request\n";
+        return false;
+    }
+    return true;
+}
+
+
 int num_sequence::elem(int pos){
     if(!check_integrity(pos))
         return 0;
@@ -50,15 +60,15 @@ void num_sequence::set_sequence(ns_type nst){
     }
 }
 
-const char *num_sequence::what_am_i() const{
-    static char *names[num_seq] = {
+const char * num_sequence::what_am_i() const{
+    static const char *names[num_seq] = {
         "notSet",
         "fibonacci", "pell", "lucas", "triangular", "square", "pentagonal"
     };
     return names[_isa];
 }
 
-inline void display(ostream &os, const num_sequence &ns, int pos){
+inline void display(ostream &os, num_sequence &ns, int pos){
     os << "The element at position " << pos << " for the "
        << ns.what_am_i() << " sequence is " << ns.elem(pos) << endl;
 }
@@ -71,6 +81,7 @@ int main(){
     for(int ix=1; ix<num_sequence::num_of_sequence(); ++ix){
         ns.set_sequence(num_sequence::ns_type(ix));
         int elem_val = ns.elem(pos);
-        display(cout, ns, pos, elem_val);
+        // display(cout, ns, pos, elem_val);
+        display(cout, ns, pos);
     }
 }

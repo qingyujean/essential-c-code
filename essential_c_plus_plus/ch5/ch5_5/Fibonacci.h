@@ -66,12 +66,6 @@ ostream & Fibonacci::print(ostream &os) const { // 实现时默认参数不能�
     return os;
 }
 
-/*
+
 // Jane：放在此处或放在demo.cpp中均可以
 vector<int> Fibonacci::_elems; // static数据成员只有唯一的一份实体，必须在程序代码文件中提供其清楚定义
-
-// 非成员函数
-ostream & operator<<(ostream &os, const num_sequence &ns){ // 重载output运算符
-    return ns.print(os);
-}
-*/

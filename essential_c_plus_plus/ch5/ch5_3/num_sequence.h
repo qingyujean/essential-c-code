@@ -12,6 +12,7 @@ public:
     void triangular(int);
     void sequare(int);
     void penragonal(int);
+    
 
     int elem(int pos);
 
@@ -23,6 +24,10 @@ public:
 
     void set_sequence(ns_type nst);
     const char *what_am_i() const;
+
+    // Jane add:
+    bool check_integrity(int pos) const;
+    static int num_of_sequence() { return num_seq; };
 private:
     PtrType _pmf;
     vector<int> *_elem;

@@ -43,3 +43,7 @@ bool num_sequence::check_integrity(int pos, int size) const{
     return true;
 }
 
+// 非成员函数？
+ostream & operator<<(ostream &os, const num_sequence &ns){ // 重载output运算符
+    return ns.print(os);
+}

@@ -22,7 +22,7 @@ public:
     void insert(const elemType &elem);
     void remove(const elemType &elem);
     void remove_root();
-    void preorder() { _root->preorder(_root); }
+    void preorder(ostream &os=cout) const { _root->preorder(_root, os); }
 private:
     BTnode<elemType> *_root;
 

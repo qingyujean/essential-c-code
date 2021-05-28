@@ -5,6 +5,12 @@
 
 using namespace std;
 
+/*
+第六章二叉树的完整实现，可参考：
+https://blog.csdn.net/firecityplans/article/details/4064348
+http://en.verysource.com/code/6288904_1/btree.cpp.html
+*/
+
 template <typename valType>
 void BTnode<valType>::preorder(BTnode *pt, ostream &os) const {
     if(pt){
